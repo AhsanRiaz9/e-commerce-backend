@@ -19,7 +19,13 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from db.database import Base
-target_metadata = Base
+from db.models import Product, Sale, Inventory
+
+target_metadata = Base.metadata
+# target_metadata.tables['products'] = Product.__table__
+# target_metadata.tables['sales'] = Sale.__table__
+# target_metadata.tables['inventory'] = Inventory.__table__
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

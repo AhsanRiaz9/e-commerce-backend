@@ -18,7 +18,7 @@ class Sale(Base):
     id = Column(Integer, primary_key=True, index=True)
     product_id = Column(Integer, ForeignKey('products.id'), index=True)
     quantity = Column(Integer)
-    date = Column(DateTime, default=datetime.utcnow)
+    date = Column(DateTime, default=datetime.datetime.utcnow)
 
     # Establish many-to-one relationship with Product model
     product = relationship("Product", back_populates="sales")
@@ -28,7 +28,7 @@ class Inventory(Base):
     id = Column(Integer, primary_key=True, index=True)
     product_id = Column(Integer, ForeignKey('products.id'), index=True)
     quantity = Column(Integer)
-    last_updated = Column(DateTime, default=datetime.utcnow)
+    last_updated = Column(DateTime, default=datetime.datetime.utcnow)
 
     # Establish many-to-one relationship with Product model
     product = relationship("Product", back_populates="inventory")
