@@ -3,9 +3,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 
-# SQLALCHEMY_URL_DATABASE = "sqlite:///app/db/test.db"
-SQLALCHEMY_URL_DATABASE = "postgresql://postgres:ahsan123@localhost/ecommerce_db"
+load_dotenv('.env')  # take environment variables from .env.
+
+
+import os
+SQLALCHEMY_URL_DATABASE = os.environ.get('DATABASE_URL')
 
 
 engine = create_engine(SQLALCHEMY_URL_DATABASE)
