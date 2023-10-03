@@ -6,3 +6,5 @@ alembic
 botocore
 urllib3
 chardet
+typing-extensions
+typing
