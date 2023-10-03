@@ -12,6 +12,9 @@ class Product(Base):
 
     # Establish one-to-many relationship with Sale model
     sales = relationship("Sale", back_populates="product")
+    # Establish one-to-one relationship with Sale model
+    inventory = relationship("Inventory", back_populates="product")
+
 
 class Sale(Base):
     __tablename__ = 'sales'
