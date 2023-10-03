@@ -1,11 +1,11 @@
 from typing import List
-from pydantic import BaseModel
+from pydantic import BaseModel, confloat
 from datetime import datetime
 
 class ProductBase(BaseModel):
     name: str
     category: str
-    price: float
+    price: confloat(ge=1)
 
 
 class Product(ProductBase):

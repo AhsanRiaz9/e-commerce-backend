@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from app.db.models import Product
 from app.db.schemas import products_schema
 
-def create_product(db: Session, product_data: products_schema.Product):
+def create_product(db: Session, product_data: products_schema.ProductBase):
     product = Product(**product_data.dict())
     db.add(product)
     db.commit()
@@ -12,7 +12,7 @@ def create_product(db: Session, product_data: products_schema.Product):
 def get_product(db: Session, product_id: int):
     return db.query(Product).filter(Product.id == product_id).first()
 
-def update_product(db: Session, product_id: int, product_data: products_schema.Product):
+def update_product(db: Session, product_id: int, product_data: products_schema.ProductBase):
     product = db.query(Product).filter(Product.id == product_id).first()
     if product:
         for key, value in product_data.dict().items():
