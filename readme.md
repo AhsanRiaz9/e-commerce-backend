@@ -83,14 +83,22 @@ This API provides detailed insights into sales, revenue, and inventory status, a
 6. Apply database migrations using Alembic:
 
    ```
+   alembic init alembic
    alembic revision --autogenerate -m "message for migration changes"
    alembic upgrade head
    ```
 
 7. Run the FastAPI server:
+
    ```
     uvicorn app.main:app --reload
    ```
+
+8. Seed data in database:
+
+    ```
+      python3 seed_data.py
+    ```
 
 ## API Documentation:
 

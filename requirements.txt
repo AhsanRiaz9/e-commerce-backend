@@ -8,3 +8,4 @@ urllib3
 chardet
 typing-extensions
 typing
+pymysql
