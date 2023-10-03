@@ -1,2 +1,10 @@
 fastapi
 uvicorn
+sqlalchemy
+pydantic
+alembic
+botocore
+urllib3
+chardet
+typing-extensions
+typing
