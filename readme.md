@@ -74,13 +74,28 @@ This API provides detailed insights into sales, revenue, and inventory status, a
    pip install -r requirements.txt
    ```
 
-5. Configure your database settings in `config.py`:
+5. Configure your database settings by renaming .env.example with .env:
 
    ```python
-   DATABASE_URL = "mysql://<username>:<password>@<host>/<database_name>"
+   DATABASE_URL = "mysql+mysqlconnector://<username>:<password>@<host>/<database_name>"
    ```
 
 6. Apply database migrations using Alembic:
+
+   ```
+   alembic init alembic
+   alembic upgrade head
+   ```
+
+   Now alembic folder will be created, open env.py and these lines:
+
+   ```
+   from app.db.database import Base
+   from app.db.models import Product, Sale, Inventory
+   target_metadata = Base.metadata
+   ```
+
+   Apply migrations:
 
    ```
    alembic revision --autogenerate -m "message for migration changes"
@@ -88,9 +103,18 @@ This API provides detailed insights into sales, revenue, and inventory status, a
    ```
 
 7. Run the FastAPI server:
+
    ```
     uvicorn app.main:app --reload
    ```
+
+8. Seed data in database:
+
+   ```
+     python3 seed_data.py
+   ```
+
+Note: you need to rename .env.example with .env and update the value of DATABASE_URL variable according to your database configuration
 
 ## API Documentation:
 

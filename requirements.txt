@@ -8,3 +8,7 @@ urllib3
 chardet
 typing-extensions
 typing
+pymysql
+aiomysql
+mysql-connector-python
+python-dotenv

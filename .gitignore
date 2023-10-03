@@ -4,3 +4,4 @@ __pycache__
 *.zip
 .env
 .vscode
+alembic/
