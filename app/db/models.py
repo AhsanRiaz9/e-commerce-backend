@@ -13,7 +13,7 @@ class Product(Base):
     # Establish one-to-many relationship with Sale model
     sales = relationship("Sale", back_populates="product")
     # Establish one-to-one relationship with Sale model
-    inventory = relationship("Inventory", back_populates="product")
+    inventory = relationship("Inventory", uselist=False, back_populates="product")
 
 
 class Sale(Base):
@@ -34,4 +34,4 @@ class Inventory(Base):
     last_updated = Column(DateTime, default=datetime.datetime.utcnow)
 
     # Establish many-to-one relationship with Product model
-    product = relationship("Product", back_populates="inventory")
+    product = relationship("Product", uselist=False, back_populates="inventory")
