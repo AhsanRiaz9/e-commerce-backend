@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import products_router, inventory_router, sales_router
+from app.routers import products_router, inventory_router, sales_router, revenue_router
 
 app = FastAPI(debug=True)
 
@@ -7,7 +7,7 @@ app = FastAPI(debug=True)
 app.include_router(products_router, prefix="/api", tags=["Products"])
 app.include_router(inventory_router, prefix="/api", tags=["Inventory"])
 app.include_router(sales_router, prefix="/api", tags=["Sales"])
-
+app.include_router(revenue_router, prefix="/api", tags=["Revenue Analytics"])
 
 @app.get("/")
 def index():

@@ -8,8 +8,10 @@ class SaleCreate(BaseModel):
 class SaleBase(SaleCreate):
     date: datetime
 
+
 class Sale(SaleBase):
     id: int
+
 
     class Config:
         orm_mode = True
